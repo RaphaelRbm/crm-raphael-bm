@@ -1,0 +1,57 @@
+
+<app-navbar></app-navbar>
+
+<div class="mainDiv">
+
+<div  class="row">
+  <div class=" col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+
+      <div class="div-to-align">
+        <mat-card class="titleFont mb-3 mt-5  " >
+          <fa-icon [icon]="faShop"></fa-icon> Customer Details
+
+        </mat-card>
+
+        <form  #customerForm="ngForm">
+          <div class="form-group mb-2 ">
+            <label for="firstName" >First Name</label>
+            <input disabled="" type="text" class="form-control ng-valid mb-8 p-3 " required minlength="2" id="firstName" name="firstName" [(ngModel)]="customer.firstName" #firstName="ngModel"/>
+          </div>
+
+          <div class="form-group mb-2 mt-4 ">
+            <label for="lastName" >Last Name</label>
+            <input disabled  type="text" class="form-control ng-valid mb-8 p-3" required minlength="2" id="lastName" name="lastName" [(ngModel)]="customer.lastName" #lastName="ngModel"/>
+          </div>
+
+
+          <div class="form-group mb-2  mt-4 ">
+            <label for="phone" >Phone</label>
+            <input disabled type="text" class="form-control ng-valid mb-8 p-3 " required minlength="9" maxlength="10" id="phone" name="phone" [(ngModel)]="customer.phone" #phone="ngModel"/>
+          </div>
+
+          <div class="form-group mb-2 mt-4 ">
+            <label for="email" >email</label>
+            <input disabled type="email" class="form-control ng-valid mb-8 p-3 " required email id="email" name="email" [(ngModel)]="customer.email" #email="ngModel"/>
+          </div>
+
+          <div class="form-group mb-2 mt-4 ">
+            <label for="address" >Address</label>
+            <input disabled type="address" class="form-control ng-valid mb-8 p-3" required minlength="7" id="address" name="address" [(ngModel)]="customer.address" #address="ngModel"/>
+          </div>
+
+          <div class="form-group mt-4 ">
+            <label for="notes" >Notes</label>
+            <textarea disabled class="ng-valid mb-8 form-control p-3" rows="5" id="comment" type="text" id="notes" name="notes" [(ngModel)]="customer.notes" #notes="ngModel"></textarea>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>
+
+

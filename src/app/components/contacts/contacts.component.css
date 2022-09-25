@@ -1,0 +1,28 @@
+
+.div-wrapper {
+  height: 200px;
+  margin-top: 40px;
+
+}
+
+.div-to-align {
+  width: 75%;
+  padding: 40px 20px;
+}
+
+
+.mainDiv
+{
+  min-width: 100%;
+  max-width: 100%;
+  background-color: #f3f9fb;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding-top: 7rem;
+}
+
+
+
+td{
+  padding: 1rem;
+}

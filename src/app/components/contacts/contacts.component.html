@@ -1,0 +1,49 @@
+
+
+<app-navbar></app-navbar>
+
+
+
+<div class="container-fluid mt-5 pb-5 " style="font-size: 1.2rem; width: 90%;">
+
+  <mat-card class="titleFont mb-3" >
+    <fa-icon   [icon]="faAddressBook"></fa-icon>  Contacts
+
+  </mat-card>
+
+  <div class="row mb-4 mt-4">
+    <div class="col-3 input-group rounded w-25">
+      <input    [(ngModel)]="filterValue" style="font-size: 1.2rem;" id="fnInput" type="search" class="form-control rounded" placeholder="Name" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <fa-icon   [icon]="faSearch"></fa-icon>
+      </span>
+    </div>
+
+  </div>
+
+  <table class="table table-striped ms-1" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Phones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts | contactsFilter:filterValue;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{contact.name}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.birthday.toLocaleDateString()}}</td>
+        <td>{{contact.phones[0]}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+
+  </div>
+
+  <app-footer></app-footer>

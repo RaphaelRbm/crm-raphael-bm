@@ -1,0 +1,74 @@
+
+
+<app-navbar></app-navbar>
+
+
+
+<div class="container-fluid mt-5 pb-5 " style="font-size: 1.2rem; width: 90%;">
+
+  <mat-card class="titleFont mb-3" >
+    <fa-icon [icon]="faShop"></fa-icon>  Customers
+
+  </mat-card>
+
+  <div class="row mb-4 mt-4">
+    <div class="col-3 input-group rounded w-25">
+      <input style="font-size: 1.2rem;" id="fnInput" (change)="filter('fnInput')" type="search" class="form-control rounded" placeholder="First Name" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <fa-icon   [icon]="faSearch"></fa-icon>
+      </span>
+    </div>
+
+    <div class="col-3 input-group rounded w-25">
+      <input style="font-size: 1.2rem;" id="lnInput" (change)="filter('lnInput')" type="search" class="form-control rounded" placeholder="Last Name" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <fa-icon   [icon]="faSearch"></fa-icon>
+      </span>
+    </div>
+
+    <div class="col-3 input-group rounded w-25">
+      <input style="font-size: 1.2rem;" id="phoneInput" (change)="filter('phoneInput')" type="search" class="form-control rounded" placeholder="Phone" aria-label="Search" aria-describedby="search-addon" />
+      <span class="input-group-text border-0" id="search-addon">
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </span>
+    </div>
+
+    <div style="text-align: right;"class="col-3">
+      <button style="font-size: 1.2rem;" class="btn btn-primary" router routerLink="/add-customer"> <fa-icon [icon]="faPlus"></fa-icon> Add Customer</button>
+
+    </div>
+
+  </div>
+
+  <table  class="table table-striped ms-1 mt-4" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers | customerFilter:filterType:filterValue;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.lastName}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.email}}</td>
+        <td>
+          <fa-icon  [routerLink]="['/edit-customer', customer.id]" style="color:orange; cursor: pointer;" class="ms-4" [icon]="faPenToSquare"></fa-icon>
+          <fa-icon (click)="deleteCustomer(customer)" style="color:red; cursor: pointer;" class="ms-4" [icon]="faTrash"></fa-icon>
+          <fa-icon style="cursor: pointer;" [routerLink]="['/customer-details', customer.id]" class="ms-4" [icon]="faEye"></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  </div>
+
+
+
+  <app-footer></app-footer>

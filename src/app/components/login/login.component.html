@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <link rel="stylesheet" href="login.component.css">
+</head>
+
+<body>
+    <div class="container mb-50 w-100 h-100" >
+        <div class="main w-100 h-100n">
+            <div class="card w-100 h-100">
+                <div class="mobile-device w-100 h-100">
+                    <div class="heading w-100 h-100">
+                        <div class="logo w-100 h-100 ">
+                            <img src="/assets/img_crm_logo_3.png" class="w-75 h-75">
+                        </div>
+                    </div>
+                    <div >
+                        <form class="mt-4"  #loginForm="ngForm" novalidate>
+
+                          <small class="text-danger mb-8"  *ngIf=" (user.email == '') && (email?.dirty || email?.touched); else elseEmailBlock">*required</small>
+                          <ng-template #elseEmailBlock><small class="text-danger mb-8"  *ngIf="!email?.valid && (email?.dirty || email?.touched)">invalid email</small></ng-template>
+
+                          <div class="form-floating mb-2 ">
+                            <input
+                            type="email" class="form-control ng-valid mb-8 " required email placeholder="Email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel"/>
+                              <label for="floatingInput">Email</label>
+                          </div>
+
+
+                          <small class="text-danger ms-2 mb-8"  *ngIf=" (user.password == '') && (password?.dirty || password?.touched); else elsePasswordBlock">*required</small>
+                          <ng-template #elsePasswordBlock><small class="text-danger ms-2 mb-8"  *ngIf="!password?.valid && (password?.dirty || password?.touched)">password must contain at least 8 characters</small></ng-template>
+
+                            <div class="form-floating ">
+                              <input type="password" class="form-control ng-valid mb-8 " required minlength="8" placeholder="Password" type="password" id="password" name="password" [(ngModel)]="user.password" #password="ngModel">
+                              <label for="floatingInput">Password</label>
+                            </div>
+
+                            <button style="padding:0.6rem;" type="submit" class="btn btn-primary w-100 mt-2 bg-gradient border-none text-white mb-8 fw-normal" [disabled]="loginForm.invalid" (click)="submitLogin()">
+                              <fa-icon class="me-3" [icon]="faRightFromBracket"></fa-icon>Login
+                         </button>
+
+                            <hr class="hr-text mt-4" data-content="or">
+                            <div class="OAuth">
+                              <div class="login-google">
+                                  <img style="width:85%; height:85%; cursor:pointer;" src="/assets/img_sign_in_with_google_button.png" (click)="submitLoginWithGoogle()" alt="Google Login Image">
+                                </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-wrapper text-center pb-20 ">
+            <span style="color: #6a6a6a;" class="display-8 ">Copyright 2020 Raphael B.M. All rights reserved.</span>
+        </div>
+    </div>
+
+
+    <!-- ADDITIONAL CODE -- start YOU MIGHT NOT NEEDED -->
+    <footer>
+
+    </footer>
+    <!-- ADDITIONAL CODE -- end YOU MIGHT NOT NEEDED -->
+</body>
+
+</html>

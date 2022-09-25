@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crm-raphael-bm-bb6fc": {
+      "hosting": {
+        "crm": [
+          "crm-raphael-bm-bb6fc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm-raphael-bm-bb6fc"
+  }
+}

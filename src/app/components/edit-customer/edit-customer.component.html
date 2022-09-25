@@ -1,0 +1,78 @@
+
+<app-navbar></app-navbar>
+
+<div class="mainDiv">
+
+<div  class="row">
+  <div class=" col-10 offset-1 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+
+      <div class="div-to-align">
+        <mat-card class="titleFont mb-3 mt-5  " >
+          <fa-icon   [icon]="faPenToSquare"></fa-icon>
+
+          Edit Customer
+
+        </mat-card>
+        <form  #customerForm="ngForm" (ngSubmit)="updateCustomer()">
+          <div class="form-floating mb-2 ">
+            <input
+            type="text" class="form-control ng-valid mb-8 " required minlength="2" placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="customer.firstName" #firstName="ngModel"/>
+              <label for="floatingInput">First Name</label>
+          </div>
+
+          <small class="text-danger ms-2 mb-8"  *ngIf=" (customer.firstName == '') && (firstName?.dirty || firstName?.touched); else elseFirstNameBlock">*required</small>
+          <ng-template #elseFirstNameBlock><small class="text-danger ms-2 mb-8"  *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)">invalid first name</small></ng-template>
+
+
+          <div class="form-floating mb-2 mt-4 ">
+            <input
+            type="text" class="form-control ng-valid mb-8 " required minlength="2" placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="customer.lastName" #lastName="ngModel"/>
+              <label for="floatingInput">Last Name</label>
+          </div>
+
+          <small class="text-danger ms-2 mb-8"  *ngIf=" (customer.lastName == '') && (lastName?.dirty || lastName?.touched); else elseLastNameBlock">*required</small>
+          <ng-template #elseLastNameBlock><small class="text-danger ms-2 mb-8"  *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched)">invalid last name</small></ng-template>
+
+
+          <div class="form-floating mb-2  mt-4 ">
+            <input
+            type="text" class="form-control ng-valid mb-8 " required minlength="9" maxlength="10" placeholder="Phone" id="phone" name="phone" [(ngModel)]="customer.phone" #phone="ngModel"/>
+              <label for="floatingInput">Phone</label>
+          </div>
+
+          <small class="text-danger ms-2 mb-8"  *ngIf=" (customer.phone == '') && (phone?.dirty || phone?.touched); else elsePhoneBlock">*required</small>
+          <ng-template #elsePhoneBlock><small class="text-danger ms-2 mb-8"  *ngIf="!phone?.valid && (phone?.dirty || phone?.touched)">invalid phone</small></ng-template>
+
+          <div class="form-floating mb-2  mt-4 ">
+            <input
+            type="email" class="form-control ng-valid mb-8 " required email placeholder="Email" id="email" name="email" [(ngModel)]="customer.email" #email="ngModel"/>
+              <label for="floatingInput">Email</label>
+          </div>
+
+          <small style="margin-bottom: 1rem;" class="text-danger ms-2 "  *ngIf=" (customer.email == '') && (email?.dirty || email?.touched); else elseEmailBlock">*required</small>
+          <ng-template #elseEmailBlock><small style="margin-bottom: 1rem;" class="text-danger ms-2"  *ngIf="!email?.valid && (email?.dirty || email?.touched)">invalid email</small></ng-template>
+
+          <div class="form-floating mb-2  mt-4 ">
+            <input
+            ng-disabled="true == false" type="address" class="form-control ng-valid mb-8 " required minlength="7" placeholder="Address" id="address" name="address" [(ngModel)]="customer.address" #address="ngModel"/>
+              <label for="floatingInput">Address</label>
+          </div>
+
+          <small style="margin-bottom: 1rem;" class="text-danger ms-2 "  *ngIf=" (customer.address == '') && (address?.dirty || address?.touched); else elseAddressBlock">*required</small>
+          <ng-template #elseAddressBlock><small style="margin-bottom: 1rem;" class="text-danger ms-2"  *ngIf="!address?.valid && (address?.dirty || address?.touched)">invalid address</small></ng-template>
+
+
+          <div  class="form-group mt-4 ">
+            <textarea class="ng-valid mb-8 form-control" rows="5" id="comment" type="text" placeholder="Notes" id="notes" name="notes" [(ngModel)]="customer.notes" #notes="ngModel"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 p-2 mt-4" [disabled]="customerForm.invalid">Edit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

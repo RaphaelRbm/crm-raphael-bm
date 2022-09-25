@@ -1,0 +1,27 @@
+
+.div-wrapper {
+  height: 200px;
+  margin-top: 40px;
+
+}
+
+.div-to-align {
+  width: 85%;
+  padding: 40px 20px;
+
+  /* .... */
+}
+
+
+.mainDiv
+{
+  min-width: 100wh;
+  max-width: 100wh;
+  height: 100vh;
+  margin-top: 18rem;
+}
+
+
+.mb-8 {
+  margin-bottom: 8px;
+}
