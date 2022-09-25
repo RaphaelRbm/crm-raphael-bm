@@ -7,6 +7,9 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
+import { faHome} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import { faPhone} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -23,6 +26,10 @@ export class FooterComponent implements OnInit {
   faGoogle = faGoogle;
   faFacebookF = faFacebookF
   faTwitter = faTwitter;
+  faHome = faHome;
+  faEnvelope = faEnvelope;
+  faPhone = faPhone;
+
   constructor() { }
 
   ngOnInit(): void {
